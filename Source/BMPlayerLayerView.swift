@@ -361,7 +361,9 @@ open class BMPlayerLayerView: UIView {
                                 self.hasReadyToPlay = true
                                 self.state = .readyToPlay
                             })
-                        } else {
+                        } else if player?.status == AVPlayerStatus.unknown{
+                            self.state = .error
+                        }else{
                             self.hasReadyToPlay = true
                             self.state = .readyToPlay
                         }
